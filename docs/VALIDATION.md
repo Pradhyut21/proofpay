@@ -5,9 +5,15 @@ Verified locally on **21 October 2026**. Sample behavior is distinguished from a
 | Check | Result | Evidence |
 | --- | --- | --- |
 | Locked dependency installation | Passed | 686 packages installed; installer exit 0 |
-| Backend regression tests | **15 passed, 0 failed** | npm test; SQLite-backed D1 adapter; mocked provider HTTP only |
+| Regression tests | **22 passed, 0 failed** | npm test; 16 backend/auth tests plus six SQLite-backed Hrana adapter/migration tests; provider HTTP mocked |
 | TypeScript | Passed | tsc --noEmit, exit 0 |
 | Production Worker build | Passed | All five Vinext build stages completed, exit 0 |
+| Native Next.js production build | Passed | Next.js 16.3.4, webpack; compilation, TypeScript, prerender and trace collection completed |
+| Built Next.js authentication boundary | Passed locally | Port 3100: unauthenticated config reports localDemo=false and /signin; forged Sites headers and loopback access rejected with 401; cross-origin POST rejected with 403 |
+| Built Next.js missing configuration | Controlled responses | /signin without owner password returns 503; unconfigured webhook returns 503 WEBHOOK_NOT_CONFIGURED without an owner Basic challenge |
+| Built Next.js browser and mobile | Passed locally | Chrome owner sign-in interface; 390px viewport without horizontal overflow; zero page errors |
+| Configured Vercel workflow and persistence | **Not verified** | Positive owner workflow against a remote Turso database and persistence across redeployments need credentials |
+| Hosted Vercel deployment and remote migration | **Not verified** | Owner must import the repository and configure Vercel/Turso credentials; see VERCEL.md |
 | GitHub Actions verification | Passed | [Initial source verification run](https://github.com/Pradhyut21/proofpay-paypal-ai-hackathon/actions/runs/39592155031) |
 | Clean local D1 schema | Passed | drizzle/0000_faithful_rawhide_kid.sql; four statements executed successfully |
 | Browser sample workflow | Passed | Actual Chrome session: initial gaps → new evidence → client acceptance → sample invoice → simulated paid state; no page errors |
@@ -27,7 +33,7 @@ Verified locally on **21 October 2026**. Sample behavior is distinguished from a
 | Public YouTube upload | **Pending submitter upload** | Never infer an upload from a local MP4 |
 | Devpost submission | **Pending submitter action** | Description, tool disclosure and checklist prepared |
 
-Tests cover evidence gaps; fabricated citations; checklist extraction; ownership and CSRF; incomplete provider configuration; approval/version/price binding; stale links; compare-and-swap; partial, pending and externally recorded payments; negative inbox evidence; frozen retry payloads; attempt leases; late errors after paid/refunded webhooks; and stale provider reads racing a newer payment.
+Tests cover evidence gaps; fabricated citations; checklist extraction; ownership and CSRF; Vercel owner authentication and forged-header rejection; incomplete provider configuration; approval/version/price binding; stale links; compare-and-swap; partial, pending and externally recorded payments; negative inbox evidence; frozen retry payloads; attempt leases; late errors after paid/refunded webhooks; stale provider reads racing a newer payment; and the Turso/Hrana SQL adapter and tracked migration against a local SQLite-backed protocol test service.
 
 Provider race tests use mocked HTTP, not actual PayPal. No benchmark accuracy, real customer validation, commercial impact, escrow, production certification or awards are claimed.
 

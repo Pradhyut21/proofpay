@@ -57,6 +57,36 @@ test("hosted anonymous sellers and cross-origin write requests are rejected", ()
   assert.throws(() => requireSameOrigin(new Request("https://proofpay.test/api/evidence", { headers: { Origin: "https://attacker.test" } })), /ProofPay/);
 });
 
+test("Vercel authenticates only the configured owner and rejects forged Sites or loopback identities", async t => {
+  const previous = { ...globalThis.__proofpayTestEnv };
+  t.after(() => {
+    for (const key of Object.keys(globalThis.__proofpayTestEnv)) delete globalThis.__proofpayTestEnv[key];
+    Object.assign(globalThis.__proofpayTestEnv, previous);
+  });
+  const password = "test-only-owner-password-with-32-plus-characters";
+  Object.assign(globalThis.__proofpayTestEnv, { PROOFPAY_HOSTING: "vercel", PROOFPAY_OWNER_PASSWORD: password });
+  const ownerRequest = (username = "owner", value = password) => new Request("https://proofpay.test/api/workspace", {
+    headers: { Authorization: "Basic " + Buffer.from(`${username}:${value}`).toString("base64") },
+  });
+  assert.throws(() => sellerIdentity(req("/api/workspace")), /Sign in/);
+  assert.throws(() => sellerIdentity(new Request("http://127.0.0.1:3000/api/workspace")), /Sign in/);
+  assert.throws(() => sellerIdentity(ownerRequest("attacker")), /Sign in/);
+  assert.throws(() => sellerIdentity(ownerRequest("owner", "incorrect")), /Sign in/);
+  assert.equal(sellerIdentity(ownerRequest()), "vercel:owner");
+  const config = service.appConfig(ownerRequest());
+  assert.equal(config.authenticated, true);
+  assert.equal(config.signInUrl, "/signin");
+  assert.equal(config.localDemo, false);
+  assert.equal(service.appConfig(req("/api/config")).authenticated, false);
+  const workspace = await service.getWorkspace(ownerRequest());
+  assert.ok(workspace.id);
+  assert.equal(JSON.stringify(config).includes(password), false);
+  globalThis.__proofpayTestEnv.PROOFPAY_OWNER_PASSWORD = "short";
+  assert.throws(() => sellerIdentity(ownerRequest("owner", "short")), /Sign in/);
+  delete globalThis.__proofpayTestEnv.PROOFPAY_OWNER_PASSWORD;
+  assert.throws(() => sellerIdentity(ownerRequest()), /Sign in/);
+});
+
 test("partial real-provider configuration never enables sample payment", () => {
   assert.equal(configuredPaymentMode({}), "sample");
   assert.equal(configuredPaymentMode({ PAYPAL_CLIENT_ID: "present" }), "unavailable");

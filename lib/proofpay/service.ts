@@ -24,7 +24,7 @@ export async function readBody<T>(request: Request, schema: z.ZodType<T>): Promi
 function seller(request: Request, write = false): string {
   if (write) requireSameOrigin(request);
   const identity = sellerIdentity(request);
-  if (!isLoopback(request) && paymentMode() !== "sample") {
+  if (environment().PROOFPAY_HOSTING !== "vercel" && !isLoopback(request) && paymentMode() !== "sample") {
     const allowed = environment().PROOFPAY_SELLER_USER_ID;
     invariant(allowed && identity === `sites:${allowed}`, 403, "SELLER_NOT_AUTHORIZED", "This sandbox merchant workspace is restricted to its configured seller.");
   }
@@ -36,7 +36,7 @@ export function appConfig(request: Request): AppConfig {
   try { seller(request); authenticated = true; } catch { /* optional identity */ }
   const config = environment();
   const mode = paymentMode(config);
-  return { aiMode: config.GEMINI_API_KEY ? "gemini" : "sample", aiModel: config.GEMINI_API_KEY ? modelName(config) : "deterministic-sample-v1", paymentMode: mode, authenticated, localDemo: isLoopback(request), signInUrl: "/signin-with-chatgpt?return_to=%2F", capabilities: { analyze: authenticated, invoice: authenticated && mode !== "unavailable", samplePayment: authenticated && mode === "sample" }, notices: [config.GEMINI_API_KEY ? "Gemini evaluates supplied text; it does not execute websites or verify inboxes." : "Sample assessment uses deterministic rules. Configure Gemini for AI analysis.", mode === "sample" ? "Payment simulation is sample-only. No PayPal API is called and no money moves." : mode === "paypal_sandbox" ? "PayPal sandbox only. The buyer must pay the hosted invoice; no real money moves." : "PayPal configuration is incomplete. Payments and simulations are disabled.", "Client approval is bound to the reviewed evidence version and price. This is not escrow."] };
+  return { aiMode: config.GEMINI_API_KEY ? "gemini" : "sample", aiModel: config.GEMINI_API_KEY ? modelName(config) : "deterministic-sample-v1", paymentMode: mode, authenticated, localDemo: config.PROOFPAY_HOSTING !== "vercel" && isLoopback(request), signInUrl: config.PROOFPAY_HOSTING === "vercel" ? "/signin" : "/signin-with-chatgpt?return_to=%2F", capabilities: { analyze: authenticated, invoice: authenticated && mode !== "unavailable", samplePayment: authenticated && mode === "sample" }, notices: [config.GEMINI_API_KEY ? "Gemini evaluates supplied text; it does not execute websites or verify inboxes." : "Sample assessment uses deterministic rules. Configure Gemini for AI analysis.", mode === "sample" ? "Payment simulation is sample-only. No PayPal API is called and no money moves." : mode === "paypal_sandbox" ? "PayPal sandbox only. The buyer must pay the hosted invoice; no real money moves." : "PayPal configuration is incomplete. Payments and simulations are disabled.", "Client approval is bound to the reviewed evidence version and price. This is not escrow."] };
 }
 
 export function publicWorkspace(stored: StoredWorkspace): Workspace {

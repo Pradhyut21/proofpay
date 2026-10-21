@@ -7,7 +7,7 @@ The deadline is **13 November 2026, 01:30 IST** (12 November, noon PST). Judges'
 | Requirement | Concrete material or action | State |
 | --- | --- | --- |
 | PayPal sandbox plus meaningful AI | Server integration code; configured execution evidence | Code included; credentials and real calls still required |
-| Working application matching its description | Runnable source; setup; judge runbook | 15 tests, TypeScript, production build and browser sample workflow passed |
+| Working application matching its description | Runnable source; setup; judge runbook | 22 tests, TypeScript and both production builds passed; Worker sample workflow and Next.js sign-in/access checks passed; configured Vercel workflow pending |
 | Feature description and tool disclosure | `DEVPOST.md` | Draft prepared |
 | Functional access: setup or hosted build | README + `SETUP.md`; owner-private hosted preview deployed | Local setup included and exercised; hosted browser check and configured judge access still required |
 | Public GitHub/GitLab/Bitbucket source, assets, instructions | Complete repository | Published in Pradhyut21 account; unauthenticated public access verified |

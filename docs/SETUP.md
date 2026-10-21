@@ -59,7 +59,7 @@ Choose `.dev.vars` for local Worker development:
 Copy-Item -LiteralPath .dev.vars.example -Destination .dev.vars
 ```
 
-On macOS/Linux, use `cp .dev.vars.example .dev.vars`. Edit only the local copy. Do not put populated values in version control, screenshots, issue comments or Devpost text. `.env.example` describes the same deployment contract; use one local file format rather than both.
+On macOS/Linux, use `cp .dev.vars.example .dev.vars`. Edit only the local copy. Do not put populated values in version control, screenshots, issue comments or Devpost text. For the separate native Next.js/Vercel path, use `.env.example` → `.env.local` and follow [Vercel deployment](VERCEL.md).
 
 | Variable | Meaning |
 | --- | --- |
@@ -69,7 +69,7 @@ On macOS/Linux, use `cp .dev.vars.example .dev.vars`. Edit only the local copy. 
 | `PAYPAL_CLIENT_SECRET` | That sandbox app's server-side secret |
 | `PAYPAL_INVOICER_EMAIL` | Sandbox business account email issuing the invoice |
 | `PAYPAL_WEBHOOK_ID` | Webhook registration ID for the same sandbox app |
-| `PROOFPAY_SELLER_USER_ID` | Required for hosted configured PayPal mode: the raw Sites `oai-authenticated-user-id` value, without a `sites:` prefix |
+| `PROOFPAY_SELLER_USER_ID` | Required for Sites-hosted configured PayPal mode: the raw Sites `oai-authenticated-user-id` value, without a `sites:` prefix; Vercel uses its owner password instead |
 | `PROOFPAY_PAYMENT_MODE` | Optional `paypal_sandbox` requirement; with missing keys the mode is unavailable rather than sample |
 
 Wrangler reads local secret files beside its active configuration. Development uses the project root; the built preview uses `dist/server/wrangler.json`. For configured built preview, after the build copy the local file beside that generated config:
@@ -80,7 +80,7 @@ Copy-Item -LiteralPath .dev.vars -Destination dist/server/.dev.vars
 
 Both locations are ignored by Git. Rebuilds may replace generated output, so copy again after rebuilding. Restart the preview after configuration changes. See [Cloudflare's local secret-file rules](https://developers.cloudflare.com/workers/local-development/environment-variables/).
 
-The AI and payment modes are independent. Empty Gemini credentials select deterministic sample analysis. The implemented Gemini default is `gemini-3.5-flash`; `GEMINI_MODEL` can override it with a model available to the supplied account. Any partial PayPal configuration makes the PayPal integration unavailable; fix the configuration instead of treating a sample as a failed real call's replacement. Hosted seller access requires the allowlist as soon as any PayPal setting is present. Local loopback access stays isolated for development.
+The AI and payment modes are independent. Empty Gemini credentials select deterministic sample analysis. The implemented Gemini default is `gemini-3.5-flash`; `GEMINI_MODEL` can override it with a model available to the supplied account. Any partial PayPal configuration makes the PayPal integration unavailable; fix the configuration instead of treating a sample as a failed real call's replacement. Sites-hosted seller access requires the allowlist as soon as any PayPal setting is present. The Worker path has isolated local loopback access for development; Vercel requires the owner password even on localhost.
 
 ## Verify a real Gemini call
 
@@ -96,7 +96,7 @@ Only use customer documents with permission to send them to that provider. The m
 1. Create a sandbox **business** account and REST app in the PayPal Developer Dashboard. Use a separate sandbox **personal** buyer for payment. Obtain the issuing business email and that app's client credentials.
 2. Make the webhook route reachable over **public HTTPS**. A localhost address cannot receive PayPal notifications. A private Sites login gate can also block webhook delivery; the webhook path must be reachable by PayPal while seller actions remain authenticated. A tunnel or deployment still needs the application's trusted seller boundary configured correctly.
 3. Register the exact `/api/paypal/webhook` URL on the same sandbox REST app, subscribe to relevant invoicing events, and save its registration ID as `PAYPAL_WEBHOOK_ID`. This ID is different from the client ID. Verify the final route against the checked-out source before registration.
-4. Set all PayPal values privately, restart, and confirm the app reports PayPal sandbox mode. For a hosted configured build, set `PROOFPAY_SELLER_USER_ID` to the actual site-scoped seller ID from a trusted Sites session. Do not accept an arbitrary public request's identity header as authentication.
+4. Set all PayPal values privately, restart or redeploy, and confirm the app reports PayPal sandbox mode. On Sites, set `PROOFPAY_SELLER_USER_ID` to the actual site-scoped seller ID from a trusted session. On Vercel, configure the owner password as described in `VERCEL.md`. Do not accept an arbitrary public request's identity header as authentication.
 5. Complete a current analysis and client acceptance. Supply the sandbox personal buyer email, create/send the invoice, and save its ID and expected $300.00 USD amount privately.
 6. Open the returned PayPal sandbox payer link and complete payment as that buyer using test funds.
 7. Refresh invoice status and verify the received webhook. Confirm the same invoice ID, currency, full amount and PayPal transaction state. A UI redirect, manually posted JSON event or externally recorded payment is not evidence of an online sandbox payment.
@@ -106,8 +106,8 @@ See [PayPal sandbox](https://developer.paypal.com/tools/sandbox/), [Invoicing AP
 
 ## Hosting boundary
 
-The packaged application targets Sites/Vinext on Cloudflare Workers with D1. A hosted seller session relies on Sites dispatch stripping untrusted identity headers and injecting its own authenticated identity. A direct generic Worker or Node deployment needs a separate trusted authentication integration; changing a hosting command alone is insufficient.
+The original Sites/Vinext path runs on Cloudflare Workers with D1. Its hosted seller session relies on Sites dispatch stripping untrusted identity headers and injecting its own authenticated identity.
 
-No `render.yaml` is included: a Render Node service would not automatically provide the Worker environment, D1 database or Sites identity. Use the supported Sites lifecycle for hosting, or port these boundaries explicitly before choosing another platform.
+The [Vercel path](VERCEL.md) supplies a separate native Next.js runtime, Turso persistence and an owner HTTP Basic challenge. It does not trust Sites identity headers. Follow that guide for its three required hosting variables, schema migration and deployment settings. No `render.yaml` is included; other hosts require their own reviewed runtime configuration.
 
 The functional local setup is the deliverable while credentials are supplied later. Public repository access, hosted access policy, real integration verification, publicly visible YouTube upload and final Devpost submission must each be checked separately.

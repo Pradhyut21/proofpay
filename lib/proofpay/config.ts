@@ -13,6 +13,8 @@ export interface ProofPayEnvironment {
   PAYPAL_WEBHOOK_ID?: string;
   PROOFPAY_PAYMENT_MODE?: string;
   PROOFPAY_SELLER_USER_ID?: string;
+  PROOFPAY_HOSTING?: string;
+  PROOFPAY_OWNER_PASSWORD?: string;
 }
 
 export function environment(): ProofPayEnvironment {
@@ -29,6 +31,6 @@ export function modelName(config = environment()): string {
 
 export function database(): D1Database {
   const db = environment().DB;
-  if (!db) throw new AppError(503, "DATABASE_UNAVAILABLE", "Workspace storage is not configured. Enable the D1 database and apply the included migrations.");
+  if (!db) throw new AppError(503, "DATABASE_UNAVAILABLE", "Workspace storage is not configured. Configure the database and apply the included migration for your hosting target.");
   return db;
 }

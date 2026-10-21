@@ -12,13 +12,13 @@ The included Alder Studio example is an original, fictional $300 USD website mil
 
 **Current handoff:** a runnable source package and a captioned 2:45 sample walkthrough, `ProofPay-sample-walkthrough.mp4` (1920 × 1080, 25 fps). The submitter will add credentials later; real Gemini requests, PayPal sandbox payment and verified webhook delivery remain unverified. The sample walkthrough alone does not complete the PayPal-plus-AI submission demonstration.
 
-**Verified locally:** 15 backend tests pass, TypeScript passes, and the Worker build completes. A real browser exercised the full sample review → client acceptance → invoice → simulated payment flow with no page errors. The 390px mobile layout has no horizontal overflow. See [Validation](docs/VALIDATION.md).
+**Verified locally:** 22 tests pass, TypeScript passes, and both the Worker and native Next.js production builds complete. A real browser exercised the full Worker sample review → client acceptance → invoice → simulated payment flow. The built Next.js app passed sign-in and unauthenticated-access checks, with no browser errors or 390px horizontal overflow. Its configured remote-database workflow remains unverified. See [Validation](docs/VALIDATION.md).
 
 The [owner-private hosted preview](https://proofpay-pradhyut21.vividdaisy16.chatgpt.site) has been deployed. Hosted browser behavior and provider calls have not been verified. This preview requires the owner's access; judges should use the repository setup instructions until appropriate judging access is arranged. [GitHub Actions verification](https://github.com/Pradhyut21/proofpay-paypal-ai-hackathon/actions/runs/39592155031) also passed for the initial published source.
 
 ## Run locally
 
-Use Node.js **22.13.0 or later** and npm. From the repository root:
+Use Node.js **22.x** (at least 22.13.0) and npm. From the repository root:
 
 ```sh
 npm run install:ci
@@ -37,9 +37,17 @@ Open the loopback URL printed by the server, normally `http://localhost:5173`. F
 
 ## Configure integrations
 
-Copy `.dev.vars.example` to the ignored `.dev.vars` file and supply your own Gemini and PayPal **sandbox** values. `.env.example` lists the same contract for deployment systems; do not populate both files. Never commit credentials. Local browser preview is not a public webhook endpoint.
+For Worker development, copy `.dev.vars.example` to the ignored `.dev.vars` file and supply your own Gemini and PayPal **sandbox** values. Native Next.js/Vercel uses the ignored `.env.local` file described below. Never commit credentials. Local browser preview is not a public webhook endpoint.
 
-See [Setup and sandbox verification](docs/SETUP.md) for D1 initialization, built preview, secrets, HTTPS webhooks and the real payment checklist. The app runs on the Sites/Vinext Cloudflare Worker runtime; there is no Render deployment configuration because a generic Node service would not provide its D1 or Sites identity bindings.
+See [Setup and sandbox verification](docs/SETUP.md) for D1 initialization, built preview, secrets, HTTPS webhooks and the real payment checklist.
+
+## Deploy to Vercel
+
+Import your repository using the **Next.js** preset, root directory **`.`**, Node **22.x**, build command **`npm run build:vercel`** and the framework's default output directory. The included `vercel.json` configures the build; keep the output-directory override off.
+
+Set **`TURSO_DATABASE_URL`**, **`TURSO_AUTH_TOKEN`** and a random **`PROOFPAY_OWNER_PASSWORD`** of at least 32 characters. Apply the included schema once with `npm run db:migrate:vercel`, using private local credentials. The seller signs in at `/signin` as `owner`; scoped client links and signed PayPal webhooks use separate authorization. Gemini and PayPal keys can be added later for real checks.
+
+Follow the [Vercel deployment guide](docs/VERCEL.md) for exact import settings, database setup, environment scopes and access checks. An actual Vercel deployment has not been verified. The original `npm run build` / `npm start` commands remain the Sites/Vinext Worker path.
 
 ## Try the story
 
@@ -57,6 +65,7 @@ An AI evidence match is a reading aid. It is not proof of quality, a guarantee o
 | --- | --- |
 | [Judge runbook](docs/JUDGE_RUNBOOK.md) | A short walkthrough, sample/live distinctions and edge cases |
 | [Setup](docs/SETUP.md) | Local commands and real integration verification |
+| [Vercel deployment](docs/VERCEL.md) | Next.js import settings, Turso persistence and owner sign-in |
 | [Architecture](docs/ARCHITECTURE.md) | Data flow, identities and action boundaries |
 | [API reference](docs/API.md) | Routes, data limits and version rules |
 | [Devpost description](docs/DEVPOST.md) | Submission text, tagline and tool disclosure |
