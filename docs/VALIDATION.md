@@ -19,7 +19,7 @@ Verified locally on **21 October 2026**. Sample behavior is distinguished from a
 | Real Gemini request | **Not verified: submitter adds credentials later** | Implemented server integration; sample analysis is deterministic rules |
 | Real PayPal sandbox invoice/payment | **Not verified: submitter adds credentials later** | Implemented create/send/get/reconcile; simulation is not a sandbox payment |
 | Actual signed PayPal webhook | **Not verified without credentials/public HTTPS** | Verification code exists; live delivery pending |
-| Public GitHub access and license | Publication verification pending | Repository created under Pradhyut21 |
+| Public GitHub access and license | **Verified** | Unauthenticated GitHub API returned HTTP 200, public repository, owner Pradhyut21 and MIT; published commit d3affd662b2a52134df3ca9286915db872b03baa |
 | Hosted preview | Deployment verification pending | Owner-private preview is optional; repository instructions provide functional access |
 | Demo footage | Captured | Actual 1440 × 810 application recording; 146.6 seconds; captioned export pending |
 | Public YouTube upload | **Pending submitter upload** | Never infer an upload from a local MP4 |

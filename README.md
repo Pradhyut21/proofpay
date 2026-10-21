@@ -58,7 +58,7 @@ An AI evidence match is a reading aid. It is not proof of quality, a guarantee o
 | [Architecture](docs/ARCHITECTURE.md) | Data flow, identities and action boundaries |
 | [API reference](docs/API.md) | Routes, data limits and version rules |
 | [Devpost description](docs/DEVPOST.md) | Submission text, tagline and tool disclosure |
-| [Demo script](docs/DEMO_SCRIPT.md) | 2:45 shot list and narration |
+| [Demo script](docs/DEMO_SCRIPT.md) | 2:45 shot list and caption text |
 | [Subtitles](docs/demo.srt) | Timed English subtitle source |
 | [YouTube upload package](docs/YOUTUBE_UPLOAD.md) | Title, description, tags and upload record |
 | [Submission checklist](docs/SUBMISSION_CHECKLIST.md) | Deliverables and remaining external steps |

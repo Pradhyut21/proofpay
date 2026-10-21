@@ -4,7 +4,7 @@
 
 The ProofPay product wording, fictional Alder Studio agreement, sample evidence text, demonstration identifiers, submission description, narration and subtitles were created for this project with Codex assistance. The sample material contains no real client records. The original application contribution is released under the root MIT license.
 
-No external stock photos, music, videos, receipt images or customer documents are required by the prepared demo. A screen recording must be made from the actual running application. Do not substitute generated UI footage for functioning application evidence.
+The demo uses an actual browser recording of the running application, original title cards and timed English captions. It contains no external stock photos, stock videos, receipt images, customer documents, voice recording or music. The title cards do not replace the functioning application footage.
 
 ## Third-party software
 
@@ -24,7 +24,7 @@ These are references, not claims that third-party code or papers were authored b
 - [Vinext source and documentation](https://github.com/cloudflare/vinext)
 - [ALCE citation evaluation paper](https://aclanthology.org/2023.emnlp-main.398/)
 - [AgentDojo prompt-injection benchmark](https://arxiv.org/abs/2406.13352)
-- [Hackathon overview](https://paypalaihackathon.devpost.com/) and [Official Rules](https://paypalaihackathon.devpost.com/rules), checked 17 October 2026
+- [Hackathon overview](https://paypalaihackathon.devpost.com/) and [Official Rules](https://paypalaihackathon.devpost.com/rules), checked 21 October 2026
 
 No DocVQA, FUNSD or other external research dataset is bundled in the demonstration. Such datasets would test extraction or document QA, not validate subjective milestone acceptance.
 
@@ -32,10 +32,11 @@ No DocVQA, FUNSD or other external research dataset is bundled in the demonstrat
 
 | Item | Source | Current record |
 | --- | --- | --- |
-| Application footage | Actual ProofPay browser session | Add recording filename and date after capture |
-| Narration | `DEMO_SCRIPT.md` | Text prepared; identify voice/recording method after production |
-| Subtitles | `demo.srt` | Original English source; retime to final footage |
-| Music | None required | Do not add unlicensed music |
-| Screenshots | Actual local app captures | Add final filenames after capture |
+| Application footage | Actual ProofPay browser session, 21 October 2026 | `proofpay-capture.webm`; 1440 × 810, 25 fps, 146.6 seconds; synthetic sample workflow |
+| Title cards and captions | Original ProofPay wording with Codex assistance | Hyperframes composition; silent walkthrough, no synthetic actor or generated UI footage |
+| Subtitle source | `demo.srt` | 14 original English cues aligned to the 165-second composition; final export inspection recorded separately |
+| Music and spoken narration | None | Silent video with readable captions |
+| Screenshots | Actual local app captures | `screenshots/dashboard.png`, `review-gaps.png`, `client-review.png`, `paid-sample.png`, `mobile.png` |
+| Video typography and animation runtime | EB Garamond, JetBrains Mono and GSAP | Font OFL notices and GSAP license header retained in the separate video source package |
 
-Public repository, hosted demo and YouTube addresses belong in the final validation record only after creation and access verification.
+The original source is public in [Pradhyut21/proofpay-paypal-ai-hackathon](https://github.com/Pradhyut21/proofpay-paypal-ai-hackathon), with a detected MIT license. Hosted deployment, exported-video inspection and public YouTube publication are tracked independently in `VALIDATION.md`; a local recording does not establish any of them.

@@ -27,18 +27,20 @@ Development: created with Codex assistance; original fictional sample material.
 Demo chapters:
 00:00 The handoff problem
 00:12 The agreed website milestone
-00:28 Missing evidence
-00:44 Evidence mapping
-01:00 Completion report
-01:20 Updated review
-01:36 Client review
-01:52 Human acceptance
-02:08 Sample invoice and payment
-02:28 Setup and integration boundaries
-02:40 ProofPay
+00:22 The agreed brief
+00:36 Evidence gaps
+00:46 Missing inbox-delivery evidence
+01:01 Synthetic completion report
+01:11 Updated review
+01:24 Client review
+01:53 Human acceptance
+02:04 Sample invoice
+02:17 Simulated payment
+02:28 Activity trail
+02:38 Source and integration next steps
 ```
 
-Check the repository's public access before using this description. Replace the sample-state explanation only after recording and verifying actual integrations; keep any sandbox test-fund disclosure accurate. Add a hosted demo URL only after it exists and judges can use it.
+The source repository's public access and MIT license were verified on 21 October 2026. Replace the sample-state explanation only after recording and verifying actual integrations; keep any sandbox test-fund disclosure accurate. Add a hosted demo URL only after it exists and judges can use it.
 
 ## Tags
 
@@ -52,7 +54,7 @@ ProofPay, PayPal AI Hackathon, PayPal sandbox, freelance workflow, client approv
 - Language: English. Upload `demo.srt` only after confirming its timings match the final export.
 - Audience: answer YouTube's audience question accurately for the actual video and intended users.
 - Rights: original app footage and captions; no music is required. Check permissions for any additional marks, footage or soundtrack.
-- Duration: shorter than three minutes; the prepared source runs 2:45.
+- Duration: shorter than three minutes; the composition runs 2:45; verify the measured export duration.
 - Thumbnail: use a readable actual application frame or an original ProofPay title graphic. Do not imply an award or verified transaction.
 - Final Devpost link: use the actual public YouTube watch URL after checking playback.
 
@@ -60,8 +62,8 @@ ProofPay, PayPal AI Hackathon, PayPal sandbox, freelance workflow, client approv
 
 | Field | Value |
 | --- | --- |
-| Final local video file | Add actual exported filename |
-| Duration | Add measured duration |
+| Final local video file | Captioned export pending final verification |
+| Duration | 165-second composition; final export measurement pending |
 | Public YouTube watch URL | Not uploaded |
 | Signed-out playback checked | Not yet |
 | Subtitle timing checked | Not yet |
