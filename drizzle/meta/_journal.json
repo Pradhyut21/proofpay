@@ -1,0 +1,13 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1792227268400,
+      "tag": "0000_faithful_rawhide_kid",
+      "breakpoints": true
+    }
+  ]
+}

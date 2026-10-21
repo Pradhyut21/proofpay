@@ -1,0 +1,55 @@
+1
+00:00:00,000 --> 00:00:12,000
+ProofPay — original application walkthrough. Sample mode; no live AI or payment calls.
+
+2
+00:00:12,000 --> 00:00:22,000
+A fictional $300 website handoff: agreed scope, delivery evidence, and the next step.
+
+3
+00:00:22,000 --> 00:00:36,000
+Start from the agreed brief. Keep the milestone price fixed.
+
+4
+00:00:36,000 --> 00:00:46,000
+Sample rules flag gaps. A Gemini key enables the implemented AI integration.
+
+5
+00:00:46,000 --> 00:01:01,000
+A form success message does not establish inbox delivery.
+
+6
+00:01:01,000 --> 00:01:11,000
+Add a clearly labeled synthetic QA report. The delivery becomes a new version.
+
+7
+00:01:11,000 --> 00:01:24,000
+Findings cite the supplied text. The client makes the final decision.
+
+8
+00:01:24,000 --> 00:01:40,000
+Share the reviewed version, its supporting evidence, and the $300 price.
+
+9
+00:01:40,000 --> 00:01:53,000
+The client can inspect the same evidence before accepting.
+
+10
+00:01:53,000 --> 00:02:04,000
+Acceptance records this version and amount. It does not make a payment.
+
+11
+00:02:04,000 --> 00:02:17,000
+The accepted milestone enables an invoice. This recording uses sample mode.
+
+12
+00:02:17,000 --> 00:02:28,000
+Simulated payment is isolated from PayPal. No money moves.
+
+13
+00:02:28,000 --> 00:02:38,000
+Evidence, acceptance, invoice, and sample payment remain in one activity trail.
+
+14
+00:02:38,000 --> 00:02:45,000
+Original source in Pradhyut21/proofpay-paypal-ai-hackathon. Configure Gemini and PayPal sandbox for the real integration test.

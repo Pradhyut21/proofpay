@@ -1,0 +1,16 @@
+# Copy to .dev.vars for local Vite/Worker development. Never commit populated values.
+# Leave credentials blank to explore clearly labelled sample mode.
+GEMINI_API_KEY=""
+# Optional model override; use a model available to your Gemini account.
+GEMINI_MODEL=""
+PAYPAL_CLIENT_ID=""
+PAYPAL_CLIENT_SECRET=""
+# The registered sandbox webhook ID, not the client ID.
+PAYPAL_WEBHOOK_ID=""
+# Sandbox business account email that issues the invoice.
+PAYPAL_INVOICER_EMAIL=""
+# Required in hosted configured PayPal mode: one raw Sites authenticated user ID.
+# Obtain the actual site-scoped ID from a trusted session; omit any sites: prefix.
+PROOFPAY_SELLER_USER_ID=""
+# Optional explicit requirement; paypal_sandbox disables sample fallback when keys are absent.
+PROOFPAY_PAYMENT_MODE=""
