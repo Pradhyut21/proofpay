@@ -10,9 +10,11 @@ ProofPay is a hackathon prototype for freelance web designers and their clients.
 
 The included Alder Studio example is an original, fictional $300 USD website milestone. Sample analysis and sample payment states are labelled fixtures. They do not represent a model invocation, a PayPal invoice or money moved.
 
-**Current handoff:** a runnable source package. The submitter will add credentials later; real Gemini requests, PayPal sandbox payment and verified webhook delivery remain unverified. The sample walkthrough alone does not complete the PayPal-plus-AI submission demonstration.
+**Current handoff:** a runnable source package and a captioned 2:45 sample walkthrough, `ProofPay-sample-walkthrough.mp4` (1920 × 1080, 25 fps). The submitter will add credentials later; real Gemini requests, PayPal sandbox payment and verified webhook delivery remain unverified. The sample walkthrough alone does not complete the PayPal-plus-AI submission demonstration.
 
 **Verified locally:** 15 backend tests pass, TypeScript passes, and the Worker build completes. A real browser exercised the full sample review → client acceptance → invoice → simulated payment flow with no page errors. The 390px mobile layout has no horizontal overflow. See [Validation](docs/VALIDATION.md).
+
+The [owner-private hosted preview](https://proofpay-pradhyut21.vividdaisy16.chatgpt.site) has been deployed. Hosted browser behavior and provider calls have not been verified. This preview requires the owner's access; judges should use the repository setup instructions until appropriate judging access is arranged. [GitHub Actions verification](https://github.com/Pradhyut21/proofpay-paypal-ai-hackathon/actions/runs/39592155031) also passed for the initial published source.
 
 ## Run locally
 

@@ -8,6 +8,7 @@ Verified locally on **21 October 2026**. Sample behavior is distinguished from a
 | Backend regression tests | **15 passed, 0 failed** | npm test; SQLite-backed D1 adapter; mocked provider HTTP only |
 | TypeScript | Passed | tsc --noEmit, exit 0 |
 | Production Worker build | Passed | All five Vinext build stages completed, exit 0 |
+| GitHub Actions verification | Passed | [Initial source verification run](https://github.com/Pradhyut21/proofpay-paypal-ai-hackathon/actions/runs/39592155031) |
 | Clean local D1 schema | Passed | drizzle/0000_faithful_rawhide_kid.sql; four statements executed successfully |
 | Browser sample workflow | Passed | Actual Chrome session: initial gaps → new evidence → client acceptance → sample invoice → simulated paid state; no page errors |
 | Mobile layout | Passed | 390 × 844 viewport; no horizontal overflow; screenshots/mobile.png |
@@ -19,9 +20,10 @@ Verified locally on **21 October 2026**. Sample behavior is distinguished from a
 | Real Gemini request | **Not verified: submitter adds credentials later** | Implemented server integration; sample analysis is deterministic rules |
 | Real PayPal sandbox invoice/payment | **Not verified: submitter adds credentials later** | Implemented create/send/get/reconcile; simulation is not a sandbox payment |
 | Actual signed PayPal webhook | **Not verified without credentials/public HTTPS** | Verification code exists; live delivery pending |
-| Public GitHub access and license | **Verified** | Unauthenticated GitHub API returned HTTP 200, public repository, owner Pradhyut21 and MIT; published commit d3affd662b2a52134df3ca9286915db872b03baa |
-| Hosted preview | Deployment verification pending | Owner-private preview is optional; repository instructions provide functional access |
-| Demo footage | Captured | Actual 1440 × 810 application recording; 146.6 seconds; captioned export pending |
+| Public GitHub access and license | **Verified** | Unauthenticated GitHub API returned HTTP 200, public repository, owner Pradhyut21 and MIT; source published through 5d1f61aae01a48704b8f1ba5e12f22c28a0956ac |
+| Hosted preview deployment | **Deployed; owner-private** | [Preview](https://proofpay-pradhyut21.vividdaisy16.chatgpt.site), source 5d1f61aae01a48704b8f1ba5e12f22c28a0956ac; native deployment succeeded; hosted browser/provider behavior not verified |
+| Demo footage and captioned export | **Exported and checked** | ProofPay-sample-walkthrough.mp4; H.264, 1920 × 1080, 25 fps, 165.000 seconds, 4,125 frames, 7,629,267 bytes; actual 145.6-second browser capture with a 0.4-second final hold |
+| Export visual samples | Passed | Frames at 6, 50, 90, 141 and 161 seconds plus a 90-second close-up inspected; complete app image, readable captions and explicit sample state |
 | Public YouTube upload | **Pending submitter upload** | Never infer an upload from a local MP4 |
 | Devpost submission | **Pending submitter action** | Description, tool disclosure and checklist prepared |
 
@@ -31,6 +33,8 @@ Provider race tests use mocked HTTP, not actual PayPal. No benchmark accuracy, r
 
 ## Verification limits
 
-The development server was used for the complete browser walkthrough. One earlier built-preview process stopped unexpectedly; a successful production build alone does not establish long-running production reliability. Hosted execution must be checked separately.
+The development server was used for the complete browser walkthrough. One earlier built-preview process stopped unexpectedly; a successful production build alone does not establish long-running production reliability. The hosted deployment succeeded, but its browser behavior and external provider execution must be checked separately. Its owner-private access does not provide unrestricted judge access.
+
+The Hyperframes composition passed its checks, with two structural warnings. Full browser rendering failed after disk and browser-runtime errors. The final video was assembled with FFmpeg using verified Hyperframes opening/closing snapshots, the corrected actual capture and matching captions. Its media properties and the visual samples listed above were checked. This does not claim a completed full Hyperframes browser render or a public video upload.
 
 Do not add API keys, client secrets, access tokens, review bearer URLs or sandbox passwords to this public record.

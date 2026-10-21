@@ -54,7 +54,7 @@ ProofPay, PayPal AI Hackathon, PayPal sandbox, freelance workflow, client approv
 - Language: English. Upload `demo.srt` only after confirming its timings match the final export.
 - Audience: answer YouTube's audience question accurately for the actual video and intended users.
 - Rights: original app footage and captions; no music is required. Check permissions for any additional marks, footage or soundtrack.
-- Duration: shorter than three minutes; the composition runs 2:45; verify the measured export duration.
+- Duration: measured export is 165.000 seconds (2:45), below three minutes.
 - Thumbnail: use a readable actual application frame or an original ProofPay title graphic. Do not imply an award or verified transaction.
 - Final Devpost link: use the actual public YouTube watch URL after checking playback.
 
@@ -62,11 +62,11 @@ ProofPay, PayPal AI Hackathon, PayPal sandbox, freelance workflow, client approv
 
 | Field | Value |
 | --- | --- |
-| Final local video file | Captioned export pending final verification |
-| Duration | 165-second composition; final export measurement pending |
+| Final local video file | ProofPay-sample-walkthrough.mp4; H.264, 1920 × 1080, 25 fps; 7,629,267 bytes |
+| Duration | 165.000 seconds; 4,125 frames |
 | Public YouTube watch URL | Not uploaded |
 | Signed-out playback checked | Not yet |
-| Subtitle timing checked | Not yet |
+| Caption checks | Matching source cue timings; sampled export frames inspected for readability and sample labels; inspect full playback before upload |
 | Integration state shown | Sample workflow unless re-recorded after verified configuration |
 
 This file is upload preparation, not a claim that the video or Devpost entry has been published.

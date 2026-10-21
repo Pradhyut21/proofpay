@@ -32,9 +32,9 @@ No DocVQA, FUNSD or other external research dataset is bundled in the demonstrat
 
 | Item | Source | Current record |
 | --- | --- | --- |
-| Application footage | Actual ProofPay browser session, 21 October 2026 | `proofpay-capture.webm`; 1440 × 810, 25 fps, 146.6 seconds; synthetic sample workflow |
-| Title cards and captions | Original ProofPay wording with Codex assistance | Hyperframes composition; silent walkthrough, no synthetic actor or generated UI footage |
-| Subtitle source | `demo.srt` | 14 original English cues aligned to the 165-second composition; final export inspection recorded separately |
+| Application footage | Actual ProofPay browser session, 21 October 2026 | `proofpay-capture.webm`; 1440 × 810, 25 fps, 145.6 seconds; synthetic sample workflow |
+| Title cards and captions | Original ProofPay wording with Codex assistance | Hyperframes-designed cards and caption timings; final assembly uses FFmpeg with verified card snapshots and actual app footage; no synthetic actor or generated UI footage |
+| Subtitle source | `demo.srt` | 14 original English cues aligned to the 165-second export; sampled export readability checked in `VALIDATION.md` |
 | Music and spoken narration | None | Silent video with readable captions |
 | Screenshots | Actual local app captures | `screenshots/dashboard.png`, `review-gaps.png`, `client-review.png`, `paid-sample.png`, `mobile.png` |
 | Video typography and animation runtime | EB Garamond, JetBrains Mono and GSAP | Font OFL notices and GSAP license header retained in the separate video source package |

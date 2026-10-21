@@ -58,6 +58,6 @@ TypeScript, React, Vinext, Vite, Tailwind CSS, Cloudflare Workers, Cloudflare D1
 
 Source repository: https://github.com/Pradhyut21/proofpay-paypal-ai-hackathon
 
-Functional access: complete local setup and judge instructions are included in that repository. The optional hosted preview is owner-private; it is not unrestricted judge access.
+Functional access: complete local setup and judge instructions are included in that repository. The [optional hosted preview](https://proofpay-pradhyut21.vividdaisy16.chatgpt.site) is deployed with owner-private access; hosted behavior has not been browser-verified, and it is not unrestricted judge access.
 
 Add the publicly visible YouTube URL after uploading and checking the final demonstration. Gemini and actual PayPal sandbox execution still require the submitter's credentials and verification. Eligibility and final Devpost acceptance remain the submitter's responsibility.

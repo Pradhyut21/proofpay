@@ -1,6 +1,6 @@
 # Demo script — 2 minutes 45 seconds
 
-**Composition:** 1920 × 1080, 165 seconds, English captions, no voiceover or music. The actual browser capture is 1440 × 810 at 25 fps and runs 146.6 seconds. Original opening and closing cards frame the recording. Final export verification is tracked in [Validation](VALIDATION.md).
+**Export:** 1920 × 1080, 25 fps, 165.000 seconds, English captions, no voiceover or music. The actual browser capture is 1440 × 810 at 25 fps and runs 145.6 seconds; a 0.4-second final hold completes the 146-second application segment. Original opening and closing cards frame the recording. Export verification is recorded in [Validation](VALIDATION.md).
 
 The walkthrough demonstrates **sample mode**. Runtime credentials are supplied later. It contains no actual Gemini request, PayPal invoice or money transfer. `demo.srt` contains the following 14 cues; keep them aligned if the footage is edited. Application footage was captured on 21 October 2026 using the fictional Alder Studio workspace.
 
