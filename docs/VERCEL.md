@@ -35,7 +35,7 @@ The migration command loads `.env.local`, applies the exact checked-in `drizzle/
 
 ## 3. Import your GitHub repository
 
-In Vercel, choose **Add New → Project** and import [Pradhyut21/proofpay-paypal-ai-hackathon](https://github.com/Pradhyut21/proofpay-paypal-ai-hackathon).
+In Vercel, choose **Add New → Project** and import [Pradhyut21/proofpay](https://github.com/Pradhyut21/proofpay).
 
 | Setting | Value |
 | --- | --- |

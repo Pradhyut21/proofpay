@@ -39,4 +39,4 @@ No DocVQA, FUNSD or other external research dataset is bundled in the demonstrat
 | Screenshots | Actual local app captures | `screenshots/dashboard.png`, `review-gaps.png`, `client-review.png`, `paid-sample.png`, `mobile.png` |
 | Video typography and animation runtime | EB Garamond, JetBrains Mono and GSAP | Font OFL notices and GSAP license header retained in the separate video source package |
 
-The original source is public in [Pradhyut21/proofpay-paypal-ai-hackathon](https://github.com/Pradhyut21/proofpay-paypal-ai-hackathon), with a detected MIT license. Hosted deployment, exported-video inspection and public YouTube publication are tracked independently in `VALIDATION.md`; a local recording does not establish any of them.
+The original source is public in [Pradhyut21/proofpay](https://github.com/Pradhyut21/proofpay), with a detected MIT license. Hosted deployment, exported-video inspection and public YouTube publication are tracked independently in `VALIDATION.md`; a local recording does not establish any of them.

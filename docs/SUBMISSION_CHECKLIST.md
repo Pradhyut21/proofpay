@@ -20,7 +20,7 @@ The deadline is **13 November 2026, 01:30 IST** (12 November, noon PST). Judges'
 | New work or significant event-period progress | Repository history and development disclosure | Preserve authentic history |
 | Complete Devpost entry | Final form with verified links | Submitter action required |
 
-The entrant-owned repository is public at https://github.com/Pradhyut21/proofpay-paypal-ai-hackathon. Local checks and source publication are complete. Actual Gemini execution, PayPal sandbox payment, signed webhook delivery, public YouTube upload and Devpost submission remain separate steps. See `VALIDATION.md` for evidence and limits.
+The entrant-owned repository is public at https://github.com/Pradhyut21/proofpay. Local checks and source publication are complete. Actual Gemini execution, PayPal sandbox payment, signed webhook delivery, public YouTube upload and Devpost submission remain separate steps. See `VALIDATION.md` for evidence and limits.
 
 ## Finish in this order
 

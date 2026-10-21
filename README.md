@@ -2,7 +2,7 @@
 
 **Turn delivery evidence into a clear client decision, then an invoice.**
 
-Original project repository: [Pradhyut21/proofpay-paypal-ai-hackathon](https://github.com/Pradhyut21/proofpay-paypal-ai-hackathon).
+Original project repository: [Pradhyut21/proofpay](https://github.com/Pradhyut21/proofpay).
 
 ![ProofPay delivery workspace](docs/screenshots/dashboard.png)
 
@@ -14,7 +14,7 @@ The included Alder Studio example is an original, fictional $300 USD website mil
 
 **Verified locally:** 22 tests pass, TypeScript passes, and both the Worker and native Next.js production builds complete. A real browser exercised the full Worker sample review → client acceptance → invoice → simulated payment flow. The built Next.js app passed sign-in and unauthenticated-access checks, with no browser errors or 390px horizontal overflow. Its configured remote-database workflow remains unverified. See [Validation](docs/VALIDATION.md).
 
-The [owner-private hosted preview](https://proofpay-pradhyut21.vividdaisy16.chatgpt.site) has been deployed. Hosted browser behavior and provider calls have not been verified. This preview requires the owner's access; judges should use the repository setup instructions until appropriate judging access is arranged. [GitHub Actions verification](https://github.com/Pradhyut21/proofpay-paypal-ai-hackathon/actions/runs/39592155031) also passed for the initial published source.
+The [owner-private hosted preview](https://proofpay-pradhyut21.vividdaisy16.chatgpt.site) has been deployed. Hosted browser behavior and provider calls have not been verified. This preview requires the owner's access; judges should use the repository setup instructions until appropriate judging access is arranged. [GitHub Actions verification](https://github.com/Pradhyut21/proofpay/actions/runs/39592155031) also passed for the initial published source.
 
 ## Run locally
 

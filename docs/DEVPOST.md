@@ -56,7 +56,7 @@ TypeScript, React, Vinext, Vite, Tailwind CSS, Cloudflare Workers, Cloudflare D1
 
 ## Submission fields to complete
 
-Source repository: https://github.com/Pradhyut21/proofpay-paypal-ai-hackathon
+Source repository: https://github.com/Pradhyut21/proofpay
 
 Functional access: complete local setup and judge instructions are included in that repository. The [optional hosted preview](https://proofpay-pradhyut21.vividdaisy16.chatgpt.site) is deployed with owner-private access; hosted behavior has not been browser-verified, and it is not unrestricted judge access.
 

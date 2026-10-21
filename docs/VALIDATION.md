@@ -14,7 +14,7 @@ Verified locally on **21 October 2026**. Sample behavior is distinguished from a
 | Built Next.js browser and mobile | Passed locally | Chrome owner sign-in interface; 390px viewport without horizontal overflow; zero page errors |
 | Configured Vercel workflow and persistence | **Not verified** | Positive owner workflow against a remote Turso database and persistence across redeployments need credentials |
 | Hosted Vercel deployment and remote migration | **Not verified** | Owner must import the repository and configure Vercel/Turso credentials; see VERCEL.md |
-| GitHub Actions verification | Passed | [Initial source verification run](https://github.com/Pradhyut21/proofpay-paypal-ai-hackathon/actions/runs/39592155031) |
+| GitHub Actions verification | Passed | [Initial source verification run](https://github.com/Pradhyut21/proofpay/actions/runs/39592155031) |
 | Clean local D1 schema | Passed | drizzle/0000_faithful_rawhide_kid.sql; four statements executed successfully |
 | Browser sample workflow | Passed | Actual Chrome session: initial gaps → new evidence → client acceptance → sample invoice → simulated paid state; no page errors |
 | Mobile layout | Passed | 390 × 844 viewport; no horizontal overflow; screenshots/mobile.png |

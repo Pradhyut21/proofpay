@@ -19,7 +19,7 @@ This recording uses deterministic sample analysis and simulated invoice/payment 
 
 The application assesses supplied text evidence. It does not execute a website, inspect screenshot pixels or certify work quality. Client acceptance is explicit and tied to the reviewed version and price. This is a prototype, not escrow.
 
-Source: https://github.com/Pradhyut21/proofpay-paypal-ai-hackathon
+Source: https://github.com/Pradhyut21/proofpay
 Author: Pradhyut21
 License: MIT for original project contributions; third-party licenses retained.
 Development: created with Codex assistance; original fictional sample material.
